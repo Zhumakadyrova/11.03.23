@@ -15,14 +15,14 @@ fetch("https://jsonplaceholder.typicode.com/todos")
   fetch("https://api.exchangerate.host/latest")
   .then((response) => response.json())
   .then((data) => {
-    btnToEur.textContent = data.rates.EUR
+    btnToEur.textContent = data.rates.EUR;
   });
 
   const btnToKgs = document.querySelector("#btn-kgs");
   fetch("https://api.exchangerate.host/latest")
   .then((response) => response.json())
   .then((data) => {
-    btnToKgs.textContent = data.rates.KGS
+    btnToKgs.textContent = data.rates.KGS;
   });
 
   document.querySelector("#learn-gender").addEventListener("click", function() {
@@ -50,4 +50,16 @@ fetch("https://jsonplaceholder.typicode.com/todos")
     });
   });
 
-  
+  const popularMems =document.querySelector("#random-mem");
+  fetch("https://api.imgflip.com/get_memes")
+    .then((response) => response.json())
+    .then((data)=> {
+    popularMems.textContent = data.memes;
+  });
+
+  const postCode =document.querySelector("#postcode");
+  fetch("https://api.zippopotam.us/us/90210")
+    .then((response) => response.json())
+    .then((data)=> {
+    postCode.textContent = data.country.places;
+  });
